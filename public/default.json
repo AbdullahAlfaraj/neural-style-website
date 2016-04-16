@@ -1,0 +1,17 @@
+{
+	"style_image": ["uploads/anime-girl-1.jpg"],
+	"content_image": "uploads/bioshock.jpg",
+	"output_image": "result.png",
+	"model_file": "models/nin_imagenet_conv.caffemodel",
+	"proto_file": "models/train_val.prototxt",
+	"gpu": -1,
+	"backend": "clnn",
+	"num_iterations": 1000,
+	"seed": 123,
+	"content_layers": "relu0,relu3,relu7,relu12",
+	"style_layers": "relu0,relu3,relu7,relu12",
+	"content_weight": 10,
+	"style_weight": 1000,
+	"image_size": 512,
+	"optimizer": "adam"
+}

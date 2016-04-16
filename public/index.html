@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/">
+	<title>
+		
+	</title>
+
+	<link rel="stylesheet" href="/css/gui.css">
+	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+
+</head>
+<body>
+	<header class="header">
+		<h1 class="">Neural Style Website</h1>
+	</header>
+	<div class="container-fluid">
+
+
+
+		<master>App is Loading...</master>
+
+
+		<div class="row">
+			
+			<div class="col-md-12">
+
+
+				<footer class="footer">
+					<div class="col-md-12">
+
+						Related Git Repositories:
+						<ul class="list-inline">
+							<li><a href="https://github.com/AbdullahAlfaraj/neural-style-website">neural-style-website @ AbdullahAlfaraj</a></li>
+							<li><a href="https://github.com/jcjohnson/neural-style">neural-style @ jcjohnson</a></li>
+
+						</ul>
+					</div>
+
+				</footer> 
+			</div>
+		</div>
+
+	</div>
+
+	<!-- <script src="http://code.jquery.com/jquery-1.11.1.js"></script> -->
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+
+	<script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+	<script src="/node_modules/systemjs/dist/system-polyfills.js"></script>
+	<script src="/node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+	<script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>
+	<script src="/node_modules/systemjs/dist/system.src.js"></script>
+	<script src="/node_modules/rxjs/bundles/Rx.js"></script>
+	<script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
+
+	
+	<script src="/node_modules/angular2/bundles/http.dev.js"></script>
+	<!-- socket.io  -->
+	<script src="/socket.io/socket.io.js"></script>
+	<!-- <script src="/app/"/> -->
+
+	<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- 2. Configure SystemJS -->
+	<script>
+		System.config({
+			map: { 'rxjs': '/rxjs' },
+			packages: {        
+				app: {
+					format: 'register',
+					defaultExtension: 'js'
+				}
+			}
+		});
+		System.import('app/boot')
+		.then(null, console.error.bind(console));
+
+
+		// var socket = io();
+
+		// socket.on('submit_res',function(data){
+		// 	console.log("data: %o",data);
+		// });
+		// socket.emit('submit');
+
+		// $(function(){
+			
+			var val = 0;
+			// setInterval(function(){ $("#input-log").val(val++); }, 0);
+
+
+		// })
+
+	</script>
+
+
+
+</body>
+</html>
+

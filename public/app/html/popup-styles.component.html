@@ -1,0 +1,16 @@
+<popup [modalId]="'select-styles-modal'">
+	<p header>
+		Available Styles
+	</p>
+	<div class="buttons-container" buttons>
+		<button class="btn btn-default btn-primary" (click)="refresh()">Refresh</button>
+		<button class="btn btn-danger" (click)="reset()">Reset</button>
+	</div>
+	<p description>
+		Select one or more styles:
+	</p>
+	<div content>
+		
+		<img  *ngFor="#imgUrl of uploadedFiles.uploadedImages;#idx = index;" src="{{imgUrl}}" class="selected img-thumbnail thumbnail-size thumbnail-behavior" (click)="selectStyle(idx)" [ngClass]="{selected: isSelected[idx]}" />
+	</div>
+</popup>

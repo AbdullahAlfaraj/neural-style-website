@@ -1,0 +1,160 @@
+<table class="table">
+  <thead class="thead-invers">
+
+    <tr>
+
+        <th><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#select-content-modal">Select Content</button></th>
+
+        <th><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#select-styles-modal">Select Style </button></th>
+
+    </tr>
+
+</thead>
+<tbody>
+ <tr class="">
+  <td class="col-md-6">
+   <!-- content image -->
+
+
+
+   <img width={{400}} height=225  src="{{nsData.contentUrl}}" class="border-shadow" alt="content image" data-toggle="modal" data-target="#select-content-modal" />
+
+</td>
+<td class="col-md-6">
+   <!-- style image -->
+   <div class="">
+    <img *ngIf="nsData.styleUrls.length < 1" style="width:400px;height:225px"class="border-shadow" data-toggle="modal" data-target="#select-styles-modal" src="" alt="style image"/>
+
+    <img width="{{styleImageWidth(nsData.styleUrls.length,400,2)}}"px height="{{styleImageWidth(nsData.styleUrls.length,225,2)}}"px *ngFor="#styleUrl of nsData.styleUrls" src="{{styleUrl}}" class="border-shadow" alt="style image" data-toggle="modal"  data-target="#select-styles-modal" />
+</div>
+</td>
+</tr>
+
+
+</tbody>
+</table>
+
+
+<!-- Output Images Table -->
+<table class="table">
+  <thead class="thead-invers">
+
+    <tr>
+     <th colspan="2">Output</th>
+
+ </tr>
+
+</thead>
+<tbody>
+ <tr class="">
+
+    <td class="col-md-6 col-md-offset-3" colspan="2"><carousel>output images are loading</carousel></td>
+
+
+</tr>
+
+</tbody>
+</table>
+
+
+
+<!-- most used setting -->
+<div class="row" >
+    <div class='setting  col-md-12' >
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Iterations:</label><input class="form-control" placeholder="number" [(ngModel)]="nsData.numItr"/>
+            </div>
+
+            <div class="form-group">
+                <label>Gpu ID:</label><input class="form-control" [(ngModel)]="nsData.gpuId"/>
+            </div>
+        </div>
+
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <label>Content Weight:</label><input class="form-control" [(ngModel)]="nsData.contentWeight"/>
+            </div>
+            <div class="form-group">
+                <label>Style Weight:</label><input class="form-control" placeholder="number" [(ngModel)]="nsData.styleWeight"/>
+            </div>
+
+        </div>
+        <div class="form-group col-md-12">
+            <label>Image Size:</label><input class="form-control" [(ngModel)]="nsData.imageSize"/>
+        </div>
+
+    </div>
+</div>
+
+<!-- input buttons [run,cancel,more setting] -->
+
+<div class="row" id="input-buttons">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                    <button id="run" (click)="submit()" class=" btn btn-success">Run</button>
+                </div>
+                <div class="btn-group">
+                    <button id="Cancel" (click)="cancel()" class=" btn btn-danger ">cancel</button>
+                </div>
+                <div class="btn-group">
+                    <button  (click)="toggle()" class="btn btn-default">{{toggleText[toggleIdx]}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- more setting section -->
+<div class="row">
+
+    <div class="more-setting hide-block col-md-12"  >
+
+        <!-- <div class="more-setting" [ngClass]="{'show-block':show,'hide-block':!show}" > -->
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Content Image:</label><input disabled="disabled" class="form-control" placeholder="url" [(ngModel)]="nsData.contentUrl" />
+            </div>
+            <div class="form-group">
+                <label>Output Name:</label><input class="form-control" disabled="disabled" [(ngModel)]="nsData.outputName"/>
+            </div>
+            <div class="form-group">
+                <label>Model File:</label><input class="form-control" [(ngModel)]="nsData.modelFile"/>
+            </div>
+            <div class="form-group">
+                <label>Proto File:</label><input class="form-control" [(ngModel)]="nsData.ProtoFile"/>
+            </div>
+            <div class="form-group">
+                <label>optimizer:</label><input class="form-control" [(ngModel)]="nsData.optimizer"/>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Style Images:</label><input disabled="disabled" class="form-control" placeholder="url" value="{{nsData.styleUrls.join()}}"/>
+            </div>
+            <div class="form-group">
+                <label>Backend:</label><input class="form-control" [(ngModel)]="nsData.backend"/>
+            </div>
+            <div class="form-group">
+                <label>Seed:</label><input class="form-control" [(ngModel)]="nsData.seed"/>
+            </div>
+            <div class="form-group">
+                <label>Content Layers:</label><input class="form-control" [(ngModel)]="nsData.contentLayers"/>
+            </div>
+            <div class="form-group">
+                <label>Style Layers:</label><input class="form-control" [(ngModel)]="nsData.styleLayers"/>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<!-- <div>outputDirBaseName: {{nsData.outputDirBaseName}}</div> -->
+<!-- <ul>
+    <li *ngFor="#image of nsData.outputImages; #idx = index;">outputImages#{{idx}}: {{image.url}}</li>
+</ul> -->

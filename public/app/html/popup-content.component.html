@@ -1,0 +1,59 @@
+<popup [modalId]="'select-content-modal'">
+	<p header>
+		Available Contents
+	</p>
+	<div class="buttons-container" buttons ><button class="btn btn-primary" (click)="refresh()">Refresh</button></div>
+	<p description>
+		Select a content:
+	</p>
+
+	<div content>
+		<img  *ngFor="#imgUrl of uploadedFiles.uploadedImages;#idx = index;" src="{{imgUrl}}" class="selected img-thumbnail thumbnail-size thumbnail-behavior" (click)="selectContent(idx)" [ngClass]="{selected: idx === contentIdx}" />
+	</div>
+</popup>
+
+
+
+
+
+
+
+
+
+
+<!-- <div>
+	
+	
+	<div id="select-content-modal" class="modal fade" role="dialog">	
+		<div class="modal-dialog modal-lg">
+
+			
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title"><ng-content select="[header]"></ng-content></h4>
+				</div>
+				<div class="modal-body">
+					<div class="row col-md-12">
+
+
+						<ng-content select="[description]"></ng-content>
+						
+						<img  *ngFor="#imgUrl of filesUrl;#idx = index;" src="{{imgUrl}}" class="selected img-thumbnail thumbnail-size thumbnail-behavior" (click)="selectContent(idx)" [ngClass]="{selected: idx === contentIdx}" />
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+</div> -->

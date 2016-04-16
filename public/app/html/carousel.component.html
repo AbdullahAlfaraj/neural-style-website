@@ -1,0 +1,12 @@
+
+<div class="slider-container" *ngIf="nsData.outputImages.length > 0"> 
+	<div class="slider-info">
+		<label class=" title" *ngIf="nsData.outputImages.length > 0 ">{{nsData.outputImages[nsData.currentIdx].title}}</label>
+		<span class=" idx">{{nsData.currentIdx+1}}/{{nsData.outputImages.length}}</span>
+	</div>
+	<div class="slider-img-container" (click)="showNextImage()">
+		<!-- <img *ngFor="#image of nsData.outputImages; #idx = index;" [ngClass]="{show: idx === nsData.currentIdx}"  src="{{image.url}}" (onError)="this.src='image.url';"/> -->
+		<img *ngFor="#image of nsData.outputImages; #idx = index;" [ngClass]="{show: idx === nsData.currentIdx}"  src="{{image.url}}" (onError)="this.src='loading.gif';"/>
+		
+	</div>
+</div>

@@ -1,0 +1,46 @@
+
+/*wrap the slider*/
+.slider-container{
+	// background:yellow;
+	width:400px;
+	display:inline-block;
+	border-size:2px;
+	border: 2px solid;
+	box-sizing: content-box;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+.slider-info{
+	background:black;
+	color:lightgray;
+	height:auto;
+	text-align: left;
+	.title{
+		margin-left:10px;
+
+	}
+	.idx{
+		margin-right:10px;
+		float:right
+	}
+}
+
+/*wrap the images*/
+.slider-img-container{
+	// background:green;
+	width:100%;
+	height:225px;
+
+	img{
+		width:100%;
+		height:100%;
+		display:none;
+	}
+}
+
+
+
+/*display the current image*/
+img.show{
+	display:block;
+}

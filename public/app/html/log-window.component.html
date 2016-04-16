@@ -1,0 +1,12 @@
+<section>
+	
+	<!-- <button (click)="resetLog()">Empty Log</button> -->
+	
+	<!-- <div class="inverse-bkg-color"><h2 class="inverse-bkg-color section-header" >log</h2></div> -->
+
+	<pre class="log-message-container col-md-8 col-sm-12"><textarea id="log-message" style="background:black;color:white;" placeholder="The log message is empty"readonly="readonly" >{{nsData.log}}</textarea></pre>
+	<div  *ngIf="command" class="col-md-4 col-sm-12" style=""><label>Command:</label><div id="command">{{command}}</div>
+</div>
+<!-- <input id="input-log" [(ngModel)]="log" type="text"/> -->
+<!-- <p>{{log}}</p> -->
+</section>
