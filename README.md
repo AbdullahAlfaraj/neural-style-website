@@ -46,3 +46,14 @@
     ```shell
     bash neural-style-website-up.sh
     ```
+## Usage:
+
+#### Input:
+All images, for the time being, must be placed in the "neural-style-website/public/uploads" directory.
+#### Output:
+The result/output images will be stored in the "neural-style-website/public/output" directory.
+#### Settings:
+Default neural-style settings are stored in "nerual-style-website/public/default.json" .
+####  Website url: 
+    * Internal access: "localhost:4000/" or "127.0.0.1:4000/"
+    * external access: "serverip:4000/"
