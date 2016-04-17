@@ -46,6 +46,7 @@
     ```shell
     bash neural-style-website-up.sh
     ```
+    
 ## Usage:
 
 #### Input:
@@ -57,3 +58,24 @@ Default neural-style settings are stored in "nerual-style-website/public/default
 ####  Website url: 
     * Internal access: "localhost:4000/" or "127.0.0.1:4000/"
     * external access: "serverip:4000/"
+#### ScreenShots:
+
+#####On page loading:
+
+<img src="./screenshot/on-loading-page.png" width="680" >
+
+#####Select multiple styles:
+
+<img src="./screenshot/select-two-styles.png" width="680" >
+
+#####Settings section:
+
+<img src="./screenshot/settings-section.png" width="680" >
+
+#####The log Section
+
+<img src="./screenshot/log-command.png" width="680" >
+
+#####Final output 
+
+<img src="./screenshot/final-result.png" width="680" >
