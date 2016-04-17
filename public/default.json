@@ -1,6 +1,6 @@
 {
-	"style_image": ["uploads/anime-girl-1.jpg"],
-	"content_image": "uploads/bioshock.jpg",
+	"style_image": ["uploads/picasso_selfport1907.jpg"],
+	"content_image": "uploads/brad_pitt.jpg",
 	"output_image": "result.png",
 	"model_file": "models/nin_imagenet_conv.caffemodel",
 	"proto_file": "models/train_val.prototxt",
