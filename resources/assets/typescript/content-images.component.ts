@@ -36,11 +36,7 @@ export class ContentImagesComponent {
 
 	);
 		
-		// this._neuralStyleDataService.getDefaultSetting().subscribe(
-		// 		data  => {this.nsData.defaultSetting = data;
-		// 			console.log("default setting: ", this.nsData.defaultSetting);
-		// 			alert("default setting recieved");}
-		// 		);
+		
 		
 
 	}

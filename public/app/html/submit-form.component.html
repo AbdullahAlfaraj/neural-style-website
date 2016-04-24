@@ -11,23 +11,23 @@
 
 </thead>
 <tbody>
- <tr class="">
-  <td class="col-md-6">
-   <!-- content image -->
+   <tr class="">
+      <td class="col-md-6">
+         <!-- content image -->
 
 
 
-   <img width={{400}} height=225  src="{{nsData.contentUrl}}" class="border-shadow" alt="content image" data-toggle="modal" data-target="#select-content-modal" />
+         <img width={{400}} height=225  src="{{nsData.contentUrl}}" class="border-shadow" alt="content image" data-toggle="modal" data-target="#select-content-modal" />
 
-</td>
-<td class="col-md-6">
-   <!-- style image -->
-   <div class="">
-    <img *ngIf="nsData.styleUrls.length < 1" style="width:400px;height:225px"class="border-shadow" data-toggle="modal" data-target="#select-styles-modal" src="" alt="style image"/>
+     </td>
+     <td class="col-md-6">
+         <!-- style image -->
+         <div class="">
+            <img *ngIf="nsData.styleUrls.length < 1" style="width:400px;height:225px"class="border-shadow" data-toggle="modal" data-target="#select-styles-modal" src="" alt="style image"/>
 
-    <img width="{{styleImageWidth(nsData.styleUrls.length,400,2)}}"px height="{{styleImageWidth(nsData.styleUrls.length,225,2)}}"px *ngFor="#styleUrl of nsData.styleUrls" src="{{styleUrl}}" class="border-shadow" alt="style image" data-toggle="modal"  data-target="#select-styles-modal" />
-</div>
-</td>
+            <img width="{{styleImageWidth(nsData.styleUrls.length,400,2)}}"px height="{{styleImageWidth(nsData.styleUrls.length,225,2)}}"px *ngFor="#styleUrl of nsData.styleUrls" src="{{styleUrl}}" class="border-shadow" alt="style image" data-toggle="modal"  data-target="#select-styles-modal" />
+        </div>
+    </td>
 </tr>
 
 
@@ -40,13 +40,13 @@
   <thead class="thead-invers">
 
     <tr>
-     <th colspan="2">Output</th>
+       <th colspan="2">Output</th>
 
- </tr>
+   </tr>
 
 </thead>
 <tbody>
- <tr class="">
+   <tr class="">
 
     <td class="col-md-6 col-md-offset-3" colspan="2"><carousel>output images are loading</carousel></td>
 
@@ -115,10 +115,10 @@
         <!-- <div class="more-setting" [ngClass]="{'show-block':show,'hide-block':!show}" > -->
         <div class="col-md-6">
             <div class="form-group">
-                <label>Content Image:</label><input disabled="disabled" class="form-control" placeholder="url" [(ngModel)]="nsData.contentUrl" />
+                <label>Content Image:</label><input class="form-control" readonly placeholder="url" [(ngModel)]="nsData.contentUrl" />
             </div>
             <div class="form-group">
-                <label>Output Name:</label><input class="form-control" disabled="disabled" [(ngModel)]="nsData.outputName"/>
+                <label>Output Name:</label><input class="form-control" readonly [(ngModel)]="nsData.outputName"/>
             </div>
             <div class="form-group">
                 <label>Model File:</label><input class="form-control" [(ngModel)]="nsData.modelFile"/>
@@ -133,7 +133,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label>Style Images:</label><input disabled="disabled" class="form-control" placeholder="url" value="{{nsData.styleUrls.join()}}"/>
+                <label>Style Images:</label><input readonly class="form-control" placeholder="url" value="{{nsData.styleUrls.join()}}"/>
             </div>
             <div class="form-group">
                 <label>Backend:</label><input class="form-control" [(ngModel)]="nsData.backend"/>
@@ -154,7 +154,38 @@
 
 </div>
 
-<!-- <div>outputDirBaseName: {{nsData.outputDirBaseName}}</div> -->
-<!-- <ul>
-    <li *ngFor="#image of nsData.outputImages; #idx = index;">outputImages#{{idx}}: {{image.url}}</li>
-</ul> -->
+<!-- <form method="post" enctype="multipart/form-data" action="/upload"  >
+    <span class="btn btn-defualt btn-file btn-primary">
+        Browse <input type="file"  name="images" multiple>
+    </span>
+     <input type="submit" value="Submit">
+</form> -->
+
+
+<div class="col-md-12" >
+    <h4>Upload Images From Your Device</h4>
+    <div>
+        <div class="input-group" >
+
+            <span class="input-group-btn ">
+                <span class="btn btn-primary btn-file">
+                    Browse&hellip; <input type="file" (change)="fileChangeEvent($event)" multiple />
+                </span>
+            </span>
+            <input type="text" class="form-control" readonly />
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button" (click)="uploadImages()">Upload</button>
+            </span>
+
+
+            <!-- <button class="input-group-btn">Upload</button>     -->
+
+        </div>
+    </div>
+    <span class="help-block">
+        select one or more files of type [jpeg, png]
+    </span>
+</div>
+
+
+

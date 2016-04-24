@@ -63,6 +63,7 @@ table thead.thead-invers th button:active {
   text-align: center;
   margin-top: 8px;
   margin-bottom: 8px;
+  clear: both;
 }
 
 .border-shadow {

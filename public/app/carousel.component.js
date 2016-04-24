@@ -33,7 +33,6 @@ System.register(['angular2/core', './neural-style-data.service', './image.interf
                     setTimeout(function () {
                         // this.nsData.outputImages.push(new ImageObj('uploads/736172-anime-wallpaper.jpg'));
                         _this.nsData.outputImages.push(new image_interface_1.ImageObj('assets/No-Photo-Available.jpg'));
-                        // alert("image added !");
                     }, 10000);
                 }
                 CarouselComponent.prototype.showNextImage = function () {
@@ -60,16 +59,4 @@ System.register(['angular2/core', './neural-style-data.service', './image.interf
         }
     }
 });
-//IMAGES array implementing Image interface
-// var IMAGES: Image[] = [
-//   { "title": "We are covered", "url": 'uploads/snake.jpg' },
-//   { "title": "Generation Gap", "url": 'uploads/bleach_567___rukia_by_the103orjagrat-d75ch89.png' }
-//   // { "title": "Potter Me", "url": "images/potter.jpg" },
-//   // { "title": "Pre-School Kids", "url": "images/preschool.jpg" },
-//   // { "title": "Young Peter Cech", "url": "images/soccer.jpg" } 
-// ];
-// var IMAGES: string[] = [
-// 'uploads/snake.jpg' ,
-// 'uploads/bleach_567___rukia_by_the103orjagrat-d75ch89.png'
-// ];
 //# sourceMappingURL=carousel.component.js.map

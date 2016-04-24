@@ -4,3 +4,15 @@
 .buttons-container{
 	margin-bottom:5px;
 }
+
+.upload-image-container,.upload-image-section-container{
+	margin-bottom:5px;
+}
+
+.vertical-center{
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+	min-height: 100vh; 
+
+	display: flex;
+	align-items: center;
+}

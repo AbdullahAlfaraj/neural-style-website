@@ -292,22 +292,10 @@ io.on('connection', function(socket) {
 	});
 
 	console.log("user_id: ", socket.id);
-	// ['ls', '-lha']
-	// exec('ls -lha', function(err, out, code) {
-	// exec('php problem_30.php', function(err, out, code) {  
-
-
+	
 	});
 
 http.listen(port, function() {
 
 	console.log(`the server is up on http://localhost:${port}`);
 });
-
-
-// }
-
-// http.listen(4000, function() {
-
-// 	console.log('the server is up on http://localhost:4000');
-// });

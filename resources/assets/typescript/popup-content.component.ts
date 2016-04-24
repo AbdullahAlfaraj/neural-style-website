@@ -45,13 +45,6 @@ export class PopupContentComponent {
 
 	}
 
-	
-	
-		// this._neuralStyleDataService.getDefaultSetting().subscribe(
-		// 		data  => {this.nsData.defaultSetting = data;
-		// 			console.log("default setting: ", this.nsData.defaultSetting);
-		// 			alert("default setting recieved");}
-		// 		);
 		
 
 		refresh()
@@ -68,7 +61,11 @@ export class PopupContentComponent {
 			// });
 		});
 		}
+		uploadImage(ImageUrl){
+			this._neuralStyleDataService.uploadImage(ImageUrl,()=>{this.refresh()});
+			
 
+		}
 		selectDefaultContent(defaultImage:string)
 		{
 			

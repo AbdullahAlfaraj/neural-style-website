@@ -67,6 +67,10 @@ System.register(["angular2/core", 'angular2/common', 'rxjs/Rx', './neural-style-
                         // });
                     });
                 };
+                PopupStylesComponent.prototype.uploadImage = function (ImageUrl) {
+                    var _this = this;
+                    this._neuralStyleDataService.uploadImage(ImageUrl, function () { _this.refresh(); });
+                };
                 PopupStylesComponent.prototype.reset = function () {
                     this.nsData.styleUrls = [];
                     for (var i = 0; i < this.isSelected.length; ++i) {

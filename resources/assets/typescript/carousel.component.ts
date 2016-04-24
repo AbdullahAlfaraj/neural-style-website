@@ -19,12 +19,8 @@ import {ImageObj} from './image.interface';
   styleUrls: ['css/carousel.component.css'],
   directives:[]
 })
-//Carousel Component itself
 export class CarouselComponent {
-    //images data to be bound to the template
-  // public images = IMAGES;
-  // public images : ImageObj[];
-  // public currentIdx = 0;
+
 
   nsData :NeuralStyleDataModel;
   constructor(private _neuralStyleDataService: NeuralStyleDataService)
@@ -36,7 +32,7 @@ export class CarouselComponent {
        this.nsData.outputImages.push(new ImageObj('assets/No-Photo-Available.jpg'));
        
 
-       // alert("image added !");
+       
      }, 10000);
   }
 
@@ -51,16 +47,3 @@ export class CarouselComponent {
 
 
 }
-//IMAGES array implementing Image interface
-// var IMAGES: Image[] = [
-//   { "title": "We are covered", "url": 'uploads/snake.jpg' },
-//   { "title": "Generation Gap", "url": 'uploads/bleach_567___rukia_by_the103orjagrat-d75ch89.png' }
-//   // { "title": "Potter Me", "url": "images/potter.jpg" },
-//   // { "title": "Pre-School Kids", "url": "images/preschool.jpg" },
-//   // { "title": "Young Peter Cech", "url": "images/soccer.jpg" } 
-// ];
-// var IMAGES: string[] = [
-// 'uploads/snake.jpg' ,
-// 'uploads/bleach_567___rukia_by_the103orjagrat-d75ch89.png'
-// ];
-

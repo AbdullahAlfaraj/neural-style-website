@@ -47,11 +47,6 @@ System.register(["angular2/core", 'angular2/common', 'rxjs/Rx', './neural-style-
                         });
                     });
                 }
-                // this._neuralStyleDataService.getDefaultSetting().subscribe(
-                // 		data  => {this.nsData.defaultSetting = data;
-                // 			console.log("default setting: ", this.nsData.defaultSetting);
-                // 			alert("default setting recieved");}
-                // 		);
                 PopupContentComponent.prototype.refresh = function () {
                     var _this = this;
                     this._neuralStyleDataService.getImages2(function (data, uploadedFiles) {
@@ -64,6 +59,10 @@ System.register(["angular2/core", 'angular2/common', 'rxjs/Rx', './neural-style-
                         // 	this.selectDefualtStyle();
                         // });
                     });
+                };
+                PopupContentComponent.prototype.uploadImage = function (ImageUrl) {
+                    var _this = this;
+                    this._neuralStyleDataService.uploadImage(ImageUrl, function () { _this.refresh(); });
                 };
                 PopupContentComponent.prototype.selectDefaultContent = function (defaultImage) {
                     var title = defaultImage;

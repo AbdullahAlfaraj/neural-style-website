@@ -31,7 +31,7 @@ import {PopupComponent} from './popup.component';
 public nsData:NeuralStyleDataModel;
 	// public message:string = "this my message";
 	constructor(private _neuralStyleDataService: NeuralStyleDataService) {
-	
+
 
 		this._neuralStyleDataService.getImages2((data,uploadedFiles) =>{
 			this.uploadedFiles = uploadedFiles;
@@ -66,20 +66,25 @@ public nsData:NeuralStyleDataModel;
 			// });
 		});
 	}
-	reset()
-	{
-		this.nsData.styleUrls = [];
-		for(var i = 0; i < this.isSelected.length;++i)
-		{
-			this.isSelected[i]=false;
+	uploadImage(ImageUrl){
+		this._neuralStyleDataService.uploadImage(ImageUrl,()=>{this.refresh()});
+			
 
 		}
+		reset()
+		{
+			this.nsData.styleUrls = [];
+			for(var i = 0; i < this.isSelected.length;++i)
+			{
+				this.isSelected[i]=false;
+
+			}
 
 
-}
-selectDefaultStyle(defaultImages:string[])
-{
-	this.nsData.styleUrls = [];
+		}
+		selectDefaultStyle(defaultImages:string[])
+		{
+			this.nsData.styleUrls = [];
 		//select the first image as default style
 		var noSelection = true;
 		for(var i = 0; i < defaultImages.length;++i)

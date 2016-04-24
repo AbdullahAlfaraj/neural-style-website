@@ -29,6 +29,8 @@ export class SubmitFormComponent{
 
 	toggleIdx:number = 0;
 	toggleText:string[] = ["More Setting","Less Setting"];
+	filesToUpload: Array<File>;
+
 	toggle(){
 		// this.show = !this.show;
 		this.toggleIdx = ++this.toggleIdx % 2; 
@@ -43,8 +45,8 @@ export class SubmitFormComponent{
 		this._socket.on('outputDirUpdateEvent',(data) => {
 			console.log("outputDirUpdateEvent data: ",data);
 
-		 this.nsData.outputDirBaseName = data.outputDirBaseName;
-		 this.nsData.outputName = data.outputDirBaseName + "/result.png";
+			this.nsData.outputDirBaseName = data.outputDirBaseName;
+			this.nsData.outputName = data.outputDirBaseName + "/result.png";
 			var outputImageUrls = data.outputImages;
 			this.nsData.outputImages = [];
 			this.nsData.currentIdx = 0;
@@ -55,23 +57,44 @@ export class SubmitFormComponent{
 			this.nsData.currentIdx = outputImageUrls.length - 1;
 
 
-			// this._neuralStyleDataService.getDefaultSetting().subscribe(
-			// 	data  => {this.nsData.defaultSetting = data;
-			// 		console.log("default setting: ", this.nsData.defaultSetting);
-			// 		alert("default setting recieved");}
-			// 	);
-
+			
 
 
 		});
 
 
+		
+
+		//execute the inject jquery script in the next cycle 
+		setTimeout(()=>{
 
 
-		// setTimeout(()=>{
-		// 	this.nsData.outputImages.push(new ImageObj('uploads/736172-anime-wallpaper.jpg'));
+			$(document).on('change', '.btn-file :file', function() {
+				var input = $(this),
+				numFiles = input.get(0).files ? input.get(0).files.length : 1,
+				label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+				input.trigger('fileselect', [numFiles, label]);
+			});
 
-		// }, 5000);
+			$(document).ready( function() {
+				$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+					var input = $(this).parents('.input-group').find(':text'),
+					log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+					if( input.length ) {
+						input.val(log);
+					} else {
+						if( log ) alert(log);
+					}
+
+				});
+			});
+
+
+		}, 0);
+
+		this.filesToUpload = [];
 	}
 	submit(){
 
@@ -81,7 +104,7 @@ export class SubmitFormComponent{
 		var data = {
 			styleUrls: this.nsData.styleUrls,
 			contentUrl: this.nsData.contentUrl,
-				
+
 			outputName: this.nsData.outputName,
 			modelFile : this.nsData.modelFile,
 			ProtoFile :this.nsData.ProtoFile,
@@ -117,5 +140,25 @@ export class SubmitFormComponent{
 			}
 			return maxWidth/numImages;
 		}
+
+
+		uploadImages(){
+			
+			console.log("filesToUpload: ",this.filesToUpload);
+			this._neuralStyleDataService.uploadImagesFromDevice(this.filesToUpload,()=>{
+
+				
+				this._neuralStyleDataService.refreshImages();
+			});
+		}
+
+
+		fileChangeEvent(fileInput: any){
+			this.filesToUpload = <Array<File>> fileInput.target.files;
+			console.log("filesChangeEvent this.filesToUpload",this.filesToUpload);
+			console.log("filesChangeEvent fileInput",fileInput);
+
+		}
+
 
 	}

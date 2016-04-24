@@ -38,11 +38,6 @@ System.register(["angular2/core", 'angular2/common', 'rxjs/Rx', './neural-style-
                         //select the second image as default content
                         _this.selectContent(1);
                     });
-                    // this._neuralStyleDataService.getDefaultSetting().subscribe(
-                    // 		data  => {this.nsData.defaultSetting = data;
-                    // 			console.log("default setting: ", this.nsData.defaultSetting);
-                    // 			alert("default setting recieved");}
-                    // 		);
                 }
                 ContentImagesComponent.prototype.selectContent = function (idx) {
                     this.contentIdx = idx;

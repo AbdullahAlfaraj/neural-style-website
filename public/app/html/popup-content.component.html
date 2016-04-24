@@ -1,12 +1,31 @@
 <popup [modalId]="'select-content-modal'">
+	
 	<p header>
 		Available Contents
 	</p>
+	
 	<div class="buttons-container" buttons ><button class="btn btn-primary" (click)="refresh()">Refresh</button></div>
 	<p description>
 		Select a content:
 	</p>
 
+
+	<div uploadImage class="upload-image-section-container">
+		
+		
+		<div class="upload-image-container">
+			<img  *ngIf="imageUrl" src="{{imageUrl}}"  class="img-thumbnail thumbnail-size thumbnail-behavior" onError="this.src='assets/No-Photo-Available.jpg'"/>
+		</div>
+
+		
+		<div class="input-group col-md-8 ">
+			<input teyp="text" name="imageUrl" [(ngModel)]="imageUrl" class="form-control"/>
+			<span class="input-group-btn">
+				<button (click)="uploadImage(imageUrl)" class="btn btn-default">Upload Image</button>
+			</span>
+		</div>
+		
+	</div>
 	<div content>
 		<img  *ngFor="#imgUrl of uploadedFiles.uploadedImages;#idx = index;" src="{{imgUrl}}" class="selected img-thumbnail thumbnail-size thumbnail-behavior" (click)="selectContent(idx)" [ngClass]="{selected: idx === contentIdx}" />
 	</div>

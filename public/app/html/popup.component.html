@@ -18,7 +18,7 @@
 							<button class="btn btn-danger" (click)="reset()">Reset</button> -->
 							<ng-content select="[buttons]"></ng-content>
 							<ng-content select="[description]"></ng-content>
-
+							<ng-content select="[uploadImage]"></ng-content>
 							<ng-content select="[content]"></ng-content>
 							<!-- <img  *ngFor="#imgUrl of filesUrl;#idx = index;" src="{{imgUrl}}" class="selected img-thumbnail thumbnail-size thumbnail-behavior" (click)="selectStyle(idx)" [ngClass]="{selected: isSelected[idx]}" /> -->
 						</div>

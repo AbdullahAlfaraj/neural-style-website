@@ -54,15 +54,27 @@ System.register(['angular2/core', 'angular2/common', './socket.service', './neur
                             _this.nsData.outputImages.push(new image_interface_1.ImageObj(outputImageUrls[i]));
                         console.log("outputImages: ", _this.nsData.outputImages);
                         _this.nsData.currentIdx = outputImageUrls.length - 1;
-                        // this._neuralStyleDataService.getDefaultSetting().subscribe(
-                        // 	data  => {this.nsData.defaultSetting = data;
-                        // 		console.log("default setting: ", this.nsData.defaultSetting);
-                        // 		alert("default setting recieved");}
-                        // 	);
                     });
-                    // setTimeout(()=>{
-                    // 	this.nsData.outputImages.push(new ImageObj('uploads/736172-anime-wallpaper.jpg'));
-                    // }, 5000);
+                    //execute the inject jquery script in the next cycle 
+                    setTimeout(function () {
+                        $(document).on('change', '.btn-file :file', function () {
+                            var input = $(this), numFiles = input.get(0).files ? input.get(0).files.length : 1, label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                            input.trigger('fileselect', [numFiles, label]);
+                        });
+                        $(document).ready(function () {
+                            $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
+                                var input = $(this).parents('.input-group').find(':text'), log = numFiles > 1 ? numFiles + ' files selected' : label;
+                                if (input.length) {
+                                    input.val(log);
+                                }
+                                else {
+                                    if (log)
+                                        alert(log);
+                                }
+                            });
+                        });
+                    }, 0);
+                    this.filesToUpload = [];
                 }
                 SubmitFormComponent.prototype.toggle = function () {
                     // this.show = !this.show;
@@ -101,6 +113,18 @@ System.register(['angular2/core', 'angular2/common', './socket.service', './neur
                         return maxWidth / maxImagesInRow;
                     }
                     return maxWidth / numImages;
+                };
+                SubmitFormComponent.prototype.uploadImages = function () {
+                    var _this = this;
+                    console.log("filesToUpload: ", this.filesToUpload);
+                    this._neuralStyleDataService.uploadImagesFromDevice(this.filesToUpload, function () {
+                        _this._neuralStyleDataService.refreshImages();
+                    });
+                };
+                SubmitFormComponent.prototype.fileChangeEvent = function (fileInput) {
+                    this.filesToUpload = fileInput.target.files;
+                    console.log("filesChangeEvent this.filesToUpload", this.filesToUpload);
+                    console.log("filesChangeEvent fileInput", fileInput);
                 };
                 __decorate([
                     core_1.Input(), 
